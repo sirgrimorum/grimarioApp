@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_id": "grimario-1005",
+    "project_number": "642895069480",
+    "name": "Grimario"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642895069480:android:64b8bcbdd120c770",
+        "client_id": "android:com.grimorum.grimario",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.grimorum.grimario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642895069480-remii4gcco7sj81f7vll0gcgtgrt3pfd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grimorum.grimario",
+            "certificate_hash": "0470C306CFFBD0FE3951C5EB6E6B206CDB79F457"
+          }
+        },
+        {
+          "client_id": "642895069480-q1g801gp14qjqjsu7o31uptiisstl6ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

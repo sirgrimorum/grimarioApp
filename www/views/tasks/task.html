@@ -1,0 +1,151 @@
+<ion-view cache-view="false" view-title="{{task.name}}">
+    <ion-content class="padding">
+        <button class="button icon-left button-full ion-ios-timer button-assertive" ng-show="task.timeleft <= 1">
+            {{ task.timeleftstr}}
+        </button>
+        <button class="button icon-left button-full ion-ios-timer button-energized" ng-show="task.timeleft > 1 && task.timeleft <= 4">
+            {{ task.timeleftstr}}
+        </button>
+        <button class="button icon-left button-full ion-ios-timer button-balanced" ng-show="task.timeleft > 4">
+            {{ task.timeleftstr}}
+        </button>
+
+        <div class="list">
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-lightbulb"></i>
+                Tipo
+                <span class="item-note">
+                    {{ task.type}}
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-flag"></i>
+                Avance
+                <span class="badge badge-assertive" ng-show="task.dpercentage <= '35'">{{ task.dpercentage}}%</span>
+                <span class="badge badge-energized" ng-show="task.dpercentage > '35' && task.dpercentage <= 70">{{ task.dpercentage}}%</span>
+                <span class="badge badge-balanced" ng-show="task.dpercentage > '70'">{{ task.dpercentage}}%</span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-clock" ng-show="task.state == 'pla'"></i>
+                <i class="icon ion-play" ng-show="task.state == 'des'"></i>
+                <i class="icon ion-pause" ng-show="task.state == 'pau'"></i>
+                <i class="icon ion-stop" ng-show="task.state == 'ter'"></i>
+                Estado
+                <span class="item-note">
+                    {{ task.statestr}}
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-stopwatch-outline"></i>
+                Activa durante
+                <span class="badge badge-dark">{{ task.elapsedtime}}h</span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-speedometer-outline"></i>
+                Tiempo de trabajo (h/hombre)
+                <span class="badge badge-dark">{{ task.totalhours}}h</span>
+            </a>
+            <div class="item item-divider">
+                Proyecto - Entrega
+            </div>
+            <a class="item" href="#">
+                {{ task.proyect}} - {{ task.payment}}
+            </a>
+            <div class="item item-divider">
+                Fechas
+            </div>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-calendar-outline"></i>
+                Fecha de inicio planeada
+                <span class="item-note">
+                    {{ task.planstart}}
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#" ng-show="task.state != 'pla'">
+                <i class="icon ion-ios-calendar"></i>
+                Fecha de inicio real
+                <span class="item-note">
+                    {{ task.start}}
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-ios-calendar-outline"></i>
+                Fecha de entrega planeada
+                <span class="item-note">
+                    {{ task.plan}}
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#" ng-show="task.state != 'pla'">
+                <i class="icon ion-ios-calendar"></i>
+                Fecha de entrega real
+                <span class="item-note">
+                    {{ task.end}}
+                </span>
+            </a>
+            <div class="item item-divider">
+                Costos
+            </div>
+            <a class="item item-icon-left" href="#/task/costs/{{task.id}}">
+                <i class="icon ion-cash"></i>
+                Gastoss
+                <span class="item-note">
+                    $ {{ task.othercosts}}COP
+                </span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-cash"></i>
+                Costos Totales
+                <span class="item-note">
+                    $ {{ task.totalcost}}COP
+                </span>
+            </a>
+            <div class="item item-divider">
+                Documentación
+            </div>
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-images"></i>
+                Comentarios
+                <span class="badge badge-positive">{{ task.comments}}</span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Descripción
+            </div>
+            <div class="item item-text-wrap">
+                {{task.description}}
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="item item-divider">
+                Resultado esperado
+            </div>
+            <div class="item item-text-wrap">
+                {{ task.result}}
+            </div>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-calm">
+        <div class="buttons">
+            <button class="button button-royal icon-left ion-ios-heart" ng-show="isFav(task) == -1" ng-click="fav(task)" >
+                Favorito
+            </button>
+            <button class="button button-assertive icon-left ion-ios-heart-outline" ng-show="isFav(task) >= 0" ng-click="unFav(task)" >
+                No Favorito
+            </button>
+        </div>
+        <div class="title">
+            <div class="button-bar">
+                <a class="button icon ion-play button-balanced" ng-show="task.conwork == false" ng-click="start(task.id)"></a>
+                <a class="button icon ion-pause button-energized" ng-show="task.conwork == true" href="#/task/pause/{{task.id}}"></a>
+                <a class="button icon ion-stop button-assertive"  ng-show="task.conwork == true"></a>
+                <a class="button icon ion-images button-dark" href="#/task/commentc/{{task.id}}"></a>
+                <a class="button icon ion-cash button-dark" ng-show="task.conwork == true" href="#/task/costc/{{task.id}}"></a>
+            </div>
+        </div>
+        <div class="buttons">
+        </div>
+    </ion-footer-bar>
+</ion-view>

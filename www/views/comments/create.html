@@ -1,0 +1,57 @@
+<ion-view view-title="Crear comentario">
+    <form ng-submit="createComment()">
+        <ion-content class="padding">
+            <input type='hidden' ng-model="commentData.user_id" value="{{user.id}}"/>
+            <input type='hidden' ng-model="commentData.task_id" value="{{task.task.id}}"/>
+            <div class="list list-inset">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Tipo
+                    </div>
+                    <select ng-model="commentData.commenttype">
+                        <option ng-repeat="tipo in task.commenttypes" value="{{ tipo.id}}">
+                            {{ tipo.name}}
+                        </option>
+                    </select>
+                </label>
+                <label class="item item-toogle">
+                    Público
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" name="public" ng-model="commentData.public">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">comment</span>
+                    <textarea name="comment" ng-model="commentData.comment" placeholder="Comentario"></textarea>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Enlace</span>
+                    <input type="text" name="url" ng-model="commentData.url" placeholder="Enlace a youtube">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Valor</span>
+                    <input type="number" name="value" ng-model="commentData.value" placeholder="Valor en COP">
+                </label>
+                <label class="item">
+                    <button class="button button-full button-positive" ng-click="getImage()">Seleccionar Imagen</button>
+                </label>
+                <label class="item">
+                    <img ng-src="{{collection.selectedImage}}" style="width:100%; height: auto;"/>
+                </label>
+                <label class="item">
+                    <button class="button button-full button-assertive" ng-click="getCamera()">Tomar foto</button>
+                </label>
+                <label class="item">
+                    <img ng-src="{{pictureTaken}}" style="width:100%; height: auto;"/>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-balanced" type="submit">Crear comentario</button>
+                </label>
+            </div>
+        </ion-content>
+    </form>
+    
+</ion-view>

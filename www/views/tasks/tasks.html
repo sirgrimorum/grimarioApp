@@ -1,0 +1,36 @@
+<ion-view cache-view="false" view-title="Tareas">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-left item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" href="#/task/show/{{task.id}}">
+                <i class="icon ion-clock" ng-show="task.state=='pla'"></i>
+                <i class="icon ion-play" ng-show="task.state=='des'"></i>
+                <i class="icon ion-pause" ng-show="task.state=='pau'"></i>
+                <i class="icon ion-stop" ng-show="task.state=='ter'"></i>
+                {{task.name}} - {{task.dpercentage}}%
+                <span class="item-note">
+                    {{ task.timeleftstr }}
+                </span>
+                <p>
+                    {{task.type}}<br>
+                    <small>{{task.proyect}} - {{task.payment}}</small>
+                </p>
+                <i class="icon ion-ios-heart" ng-show="isFav(task) >= 0" ></i>
+                <ion-option-button ng-show="isFav(task) == -1" ng-click="fav(task)" class="button-royal icon-left ion-ios-heart">
+                    Favorito
+                </ion-option-button>
+                <ion-option-button ng-show="isFav(task) >= 0" ng-click="unFav(task)" class="button-assertive icon-left ion-ios-heart-outline">
+                    No Fav
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-calm">
+        <div class="buttons">
+            <button class="button">Left Button</button>
+        </div>
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button" ng-click="reLoad()">Recargar</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,70 @@
+<ion-view view-title="Detener - {{task.name}}">
+    <form ng-submit="pauseTask()">
+        <ion-content class="padding">
+            <input type='hidden' ng-model="taskData.task_id" value="{{task.id}}"/>
+            <input type='hidden' ng-model="taskData.work_id" value="{{task.work.id}}"/>
+            <div class="list list-inset">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Jornada de trabajo</span>
+                    <input type="text" name="name" ng-model="taskData.name" placeholder="Nombre">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Porcentaje de avance {{ taskData.dpercentage || task.dpercentage}}%</span>
+                </label>
+                <div class="item range">
+                    <i class="icon ion-ios-circle-outline"></i>
+                    <input type="range" name="volume" ng-model="taskData.dpercentage" min="0" max="100" value="{{task.dpercentage}}">
+                    <i class="icon ion-ios-checkmark"></i>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <div class="item item-divider">
+                    Jugadores
+                </div>
+                <div class="item item-avatar" ng-repeat="user in task.players">
+                    <img src="{{ user.picture}}">
+                    <h2>{{user.name}}</h2>
+                    <p>
+                        <label class="item item-input">
+                            <span class="input-label">Horas trabajadas</span>
+                            <input type="text" name="horas" ng-model="taskData.work_users[user.id]" placeholder="Horas trabajadas">
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <div class="item item-divider">
+                    Máquinas
+                </div>
+                <div class="item" ng-repeat="machine in task.machines">
+                    <h2>{{machine.name}} - $ {{ machine.valueph }} COP/hora</h2>
+                    <p>
+                        <label class="item item-input">
+                            <span class="input-label">Horas de uso</span>
+                            <input type="text" name="mhoras" ng-model="taskData.work_machines[machine.id]" placeholder="Horas de uso">
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="list list-inset">   
+                <div class="item item-divider">
+                    Recursos
+                </div>
+                <div class="item" ng-repeat="resource in task.resources">
+                    <h2>{{resource.name}} - $ {{ resource.value }} COP/{{ resource.measure }}</h2>
+                    <p>
+                        <label class="item item-input">
+                            <span class="input-label">{{ resource.measure }} 's</span>
+                            <input type="text" name="rvalue" ng-model="taskData.work_resources[resource.id]" placeholder="{{ resource.measure }}'s usados(as)">
+                        </label>
+                    </p>
+                </div>
+            </div>
+        </ion-content>
+        <ion-footer-bar align-title="center" class="bar-light">
+            <div class="button-bar">
+                <button class="button button-large button-balanced" type="submit">Cerrar jornada</button>
+            </div>
+        </ion-footer-bar>
+    </form>
+</ion-view>

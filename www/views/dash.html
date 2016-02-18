@@ -1,0 +1,29 @@
+<ion-view view-title="Favoritas">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-remove-animate item-icon-left item-icon-right" show-delete=true ng-repeat="task in tasks" type="item-text-wrap" href="#/task/show/{{task.id}}">
+                <i class="icon ion-clock" ng-show="task.state=='pla'"></i>
+                <i class="icon ion-play" ng-show="task.state=='des'"></i>
+                <i class="icon ion-pause" ng-show="task.state=='pau'"></i>
+                <i class="icon ion-stop" ng-show="task.state=='ter'"></i>
+                {{task.name}} - {{task.dpercentage}}%
+                <span class="item-note">
+                    {{ task.timeleftstr}}
+                </span>
+                <p>
+                    {{task.type}}<br>
+                    <small>{{task.proyect}} - {{task.payment}}</small>
+                </p>
+                <ion-option-button ng-click="unFav(task)" class="button-assertive icon-left ion-ios-heart-outline">
+                    No Fav
+                </ion-option-button>
+                <ion-option-button class="button-info" ng-click="start(task)">
+                    Comenzar
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="remove(task)">
+                </ion-delete-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

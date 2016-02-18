@@ -1,0 +1,32 @@
+<ion-view class="welcome-view" cache-view="false">
+    <ion-content scroll="false">
+        <div class="top-content row">
+            <div class="app-copy col col-top">
+                <h1 class="app-logo">Grimario</h1>
+                <p class="app-tagline">
+                    Herramienta de trabajo
+                </p>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <form ng-submit="doLogin()">
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input type="email" ng-model="loginData.email">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Clave</span>
+                        <input type="password" ng-model="loginData.password">
+                    </label>
+                    <label class="item">
+                        <button class="button button-block button-positive" type="submit">Log in</button>
+                        <a class="google-sign-in button button-block button-assertive" ng-show="showBtnGoogle" ng-click="googleSignIn()">
+                            Sign in with Google
+                        </a>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>
