@@ -1,5 +1,5 @@
 <ion-view view-title="Crear comentario">
-    <form ng-submit="createComment()">
+    <!--form ng-submit="createComment()"-->
         <ion-content class="padding">
             <input type='hidden' ng-model="commentData.user_id" value="{{user.id}}"/>
             <input type='hidden' ng-model="commentData.task_id" value="{{task.task.id}}"/>
@@ -52,6 +52,6 @@
                 </label>
             </div>
         </ion-content>
-    </form>
+   
     
 </ion-view>
