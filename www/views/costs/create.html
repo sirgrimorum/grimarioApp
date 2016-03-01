@@ -36,6 +36,11 @@
                     <span class="input-label">Valor</span>
                     <input type="number" name="value" ng-model="costData.value" placeholder="Valor en COP">
                 </label>
+                <label class="item item-input">
+                    <span class="input-label" ng-click="selectDate($event)">Fecha</span>
+                    <input type="text" ng-readonly="ffecha" ng-model="ffecha" ng-click="selectDate($event)">
+                    <input type="hidden" name="date" ng-model="costData.date" placeholder="Fecha">
+                </label>
                 <label class="item">
                     <button class="button button-block button-balanced" type="submit">Guardar gasto</button>
                 </label>

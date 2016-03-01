@@ -16,6 +16,16 @@
                     <input type="range" name="volume" ng-model="taskData.dpercentage" min="0" max="100" value="{{task.dpercentage}}">
                     <i class="icon ion-ios-checkmark"></i>
                 </div>
+                <label class="item item-input">
+                    <span class="input-label" ng-click="selectDate($event,1)">Inicio</span>
+                    <input type="text" ng-readonly="fstart" ng-model="fstart" ng-click="selectDate($event,1)">
+                    <input type="hidden" name="start" ng-model="taskData.start" placeholder="Inicio">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label" ng-click="selectDate($event,2)">Final</span>
+                    <input type="text" ng-readonly="fend" ng-model="fend" ng-click="selectDate($event,2)">
+                    <input type="hidden" name="end" ng-model="taskData.end" placeholder="Final">
+                </label>
             </div>
             <div class="list list-inset">
                 <div class="item item-divider">

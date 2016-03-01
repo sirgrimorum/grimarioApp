@@ -4,7 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('grimario', ['ionic', 'ngCordova', 'grimario.controllers', 'grimario.services'])
+var app = angular.module('grimario', ['ionic', 'ngCordova','lokijs', 'grimario.controllers', 'grimario.services'])
+
+        .constant('urlBase', 'http://grimario.grimorum.com/api/')
+        //.constant('urlBase', 'http://localhost/grimario/public/api/')
+        
+        //.value('_db')
 
         .run(function($ionicPlatform) {
             $ionicPlatform.ready(function() {
@@ -19,6 +24,7 @@ var app = angular.module('grimario', ['ionic', 'ngCordova', 'grimario.controller
                     // org.apache.cordova.statusbar required
                     StatusBar.styleDefault();
                 }
+                
             });
         })
 
@@ -46,7 +52,7 @@ var app = angular.module('grimario', ['ionic', 'ngCordova', 'grimario.controller
                     })
                     
                     
-                    .state('app.dash', {
+                    .state('task.dash', {
                         url: '/dash',
                         views: {
                             'menuContent': {
@@ -105,12 +111,21 @@ var app = angular.module('grimario', ['ionic', 'ngCordova', 'grimario.controller
                             }
                         }
                     })
+                    .state('task.comment', {
+                        url: '/comment/:commentId',
+                        views: {
+                            'menuContent': {
+                                templateUrl: 'views/comments/show.html',
+                                controller: 'CommentCtrl'
+                            }
+                        }
+                    })
                     .state('task.commentc', {
                         url: '/commentc/:taskId',
                         views: {
                             'menuContent': {
                                 templateUrl: 'views/comments/create.html',
-                                controller: 'CommentCtrl'
+                                controller: 'CommentcCtrl'
                             }
                         }
                     })

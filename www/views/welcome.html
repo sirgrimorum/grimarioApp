@@ -11,22 +11,21 @@
         <div class="bottom-content">
             <form ng-submit="doLogin()">
                 <div class="list">
-                    <label class="item item-input">
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Email</span>
-                        <input type="email" ng-model="loginData.email">
+                        <input type="email" ng-model="loginData.email" placeholder="Email">
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Clave</span>
-                        <input type="password" ng-model="loginData.password">
+                        <input type="password" ng-model="loginData.password" placeholder="Clave">
                     </label>
                     <label class="item">
                         <button class="button button-block button-positive" type="submit">Log in</button>
-                        <a class="google-sign-in button button-block button-assertive" ng-show="showBtnGoogle" ng-click="googleSignIn()">
-                            Sign in with Google
-                        </a>
+
                     </label>
                 </div>
             </form>
+            <button class="google-sign-in button button-block button-assertive" ng-show="showBtnGoogle" ng-click="googleSignIn()">Sign in with Google</button>
         </div>
     </ion-content>
 </ion-view>

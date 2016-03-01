@@ -1,0 +1,53 @@
+<ion-view cache-view="false" view-title="{{comment.date}} - {{comment.typestr}}">
+    <ion-content class="padding">
+        <div class="list">
+            <a class="item item-icon-left" href="#">
+                <i class="icon ion-compose"></i>
+                {{ comment.typestr}}</br>
+                <small>{{ comment.date}}</small>
+                <span class="item-note" ng-show="comment.public == true">
+                    Público
+                </span>
+                <span class="item-note" ng-show="comment.public == false">
+                    Privado
+                </span>
+            </a>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Commentario
+            </div>
+            <div class="item item-text-wrap">
+                {{comment.comment}}
+            </div>
+        </div>
+        <div class="list">
+            <a class="item item-image" href="#" ng-show="comment.image != ''">
+                <img src="{{comment.image}}"/>
+            </a>
+            <a class="item item-icon-left" href="#" ng-show="comment.image == '' && comment.url!=''">
+                <i class="icon ion-earth"></i>
+                Enlace
+                <span class="item-note">
+                    {{ task.url}}
+                </span>
+            </a>
+            <a class="item item-icon-left assertive" href="#" ng-show="comment.file != ''" ng-click="abrirUrl(comment.file)">
+                <i class="icon ion-open"></i>
+                Descargar
+            </a>
+            <a class="item item-icon-left assertive" href="#" ng-show="comment.url != ''" ng-click="abrirUrl(comment.url)">
+                <i class="icon ion-open"></i>
+                Abrir
+            </a>
+            <a class="item item-avatar" href="#">
+                <img src="{{ comment.user_picture}}"/>
+                {{ comment.user}}
+            </a>
+            <a class="item item-image" href="#" >
+                <img ng-src="{{imgFile}}"/>
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

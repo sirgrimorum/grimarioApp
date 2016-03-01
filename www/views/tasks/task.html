@@ -87,7 +87,7 @@
             </div>
             <a class="item item-icon-left" href="#/task/costs/{{task.id}}">
                 <i class="icon ion-cash"></i>
-                Gastoss
+                Gastos
                 <span class="item-note">
                     $ {{ task.othercosts}}COP
                 </span>
@@ -102,7 +102,7 @@
             <div class="item item-divider">
                 Documentación
             </div>
-            <a class="item item-icon-left" href="#">
+            <a class="item item-icon-left" href="#/task/comments/{{task.id}}">
                 <i class="icon ion-images"></i>
                 Comentarios
                 <span class="badge badge-positive">{{ task.comments}}</span>
@@ -128,24 +128,16 @@
 
     </ion-content>
     <ion-footer-bar align-title="center" class="bar-calm">
-        <div class="buttons">
-            <button class="button button-royal icon-left ion-ios-heart" ng-show="isFav(task) == -1" ng-click="fav(task)" >
-                Favorito
-            </button>
-            <button class="button button-assertive icon-left ion-ios-heart-outline" ng-show="isFav(task) >= 0" ng-click="unFav(task)" >
-                No Favorito
-            </button>
-        </div>
         <div class="title">
             <div class="button-bar">
+                <a class="button icon button-royal ion-ios-heart" ng-show="!isFav(task)" ng-click="fav(task)" ></a>
+                <a class="button icon button-assertive ion-ios-heart-outline" ng-show="isFav(task)" ng-click="unFav(task)" ></a>
                 <a class="button icon ion-play button-balanced" ng-show="task.conwork == false" ng-click="start(task.id)"></a>
                 <a class="button icon ion-pause button-energized" ng-show="task.conwork == true" href="#/task/pause/{{task.id}}"></a>
                 <a class="button icon ion-stop button-assertive"  ng-show="task.conwork == true"></a>
                 <a class="button icon ion-images button-dark" href="#/task/commentc/{{task.id}}"></a>
                 <a class="button icon ion-cash button-dark" ng-show="task.conwork == true" href="#/task/costc/{{task.id}}"></a>
             </div>
-        </div>
-        <div class="buttons">
         </div>
     </ion-footer-bar>
 </ion-view>

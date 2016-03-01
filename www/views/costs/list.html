@@ -1,11 +1,17 @@
-<ion-view cache-view="false" view-title="Gastos de {{ task.name }} ">
+<ion-view cache-view="false" view-title="Gastos de {{ task.name}} ">
     <ion-content>
+        <ion-refresher
+            pulling-text="Recargar..."
+            on-refresh="reLoad()">
+        </ion-refresher>
+
         <ion-list>
             <ion-item class="item-remove-animate item-avatar" ng-repeat="cost in costs" type="item-text-wrap" href="#">
-                <img src="{{ cost.user_picture }}"/>
+                <img src="{{ cost.user_picture}}"/>
                 <h2>{{cost.rubrostr}} - {{cost.typestr}}</h2>
                 <span class="item-note">
-                    $ {{cost.value}} COP
+                    $ {{cost.value}} COP<br/>
+                    {{ cost.date}}
                 </span>
                 <p>
                     {{cost.description}}
@@ -15,12 +21,4 @@
             </ion-item>
         </ion-list>
     </ion-content>
-    <ion-footer-bar align-title="center" class="bar-calm">
-        <div class="buttons">
-        </div>
-        <h1 class="title"></h1>
-        <div class="buttons">
-            <button class="button" ng-click="reLoad()">Recargar</button>
-        </div>
-    </ion-footer-bar>
 </ion-view>
