@@ -71,4 +71,14 @@
         <splash src="resources/ios/splash/Default@2x~iphone.png" height="960" width="640"/>
         <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
     </platform>
+    <plugin name="cordova-plugin-camera"/>
+    <plugin name="cordova-plugin-datepicker"/>
+    <plugin name="cordova-plugin-file-transfer"/>
+    <plugin name="cordova-plugin-inappbrowser"/>
+    <plugin name="cordova-plugin-whitelist"/>
+    <plugin name="cordova-plugin-googleplus">
+        <param name="REVERSED_CLIENT_ID" value="642895069480-q1g801gp14qjqjsu7o31uptiisstl6ao.apps.googleusercontent.com" />
+    </plugin>
+    <plugin spec="https://github.com/wymsee/cordova-imagePicker.git" />
+    
 </widget>

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('grimario', ['ionic', 'ngCordova','lokijs', 'grimario.controllers', 'grimario.services'])
+var app = angular.module('grimario', ['ionic', 'ngCordova','lokijs', 'textAngular', 'grimario.controllers', 'grimario.services'])
 
         .constant('urlBase', 'http://grimario.grimorum.com/api/')
         //.constant('urlBase', 'http://localhost/grimario/public/api/')
